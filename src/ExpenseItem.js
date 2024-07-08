@@ -40,15 +40,17 @@ const ExpenseItem = (props) => {
             <td>{currency}{props.cost}</td>
             <td>
                 <button 
-                    className='btn btn-success btn-circle mr-1'
-                    style={{ borderRadius: '50%', padding: '10px 15px', fontSize: '16px', color: 'white', backgroundColor: 'green', border: 'none' }}
+                    className='btn btn-success btn-circle'
+                    style={{ borderRadius: '50%', padding: '10px', fontSize: '16px', color: 'white', backgroundColor: 'green', border: 'none', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     onClick={() => increaseAllocation(props.name)}
                 >
                     +
                 </button>
+            </td>
+            <td>
                 <button 
                     className='btn btn-danger btn-circle'
-                    style={{ borderRadius: '50%', padding: '10px 15px', fontSize: '16px', color: 'white', backgroundColor: 'red', border: 'none' }}
+                    style={{ borderRadius: '50%', padding: '10px', fontSize: '16px', color: 'white', backgroundColor: 'red', border: 'none', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     onClick={() => decreaseAllocation(props.name)}
                 >
                     -
