@@ -7,13 +7,20 @@ import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
 import Remaining from './components/Remaining';
-import Currency from './components/Currency'; 
+import Currency from './components/Currency'; // ADD
 
 const App = () => {
     return (
         <AppProvider>
             <div className='container'>
-                <h1 className='mt-3'>Company's Budget Allocation</h1>
+                <div className='row mt-3'>
+                    <div className='col-sm'>
+                        <h1>Company's Budget Allocation</h1>
+                    </div>
+                    <div className='col-sm d-flex justify-content-end'>
+                        <Currency /> // MOVE TO TOP RIGHT
+                    </div>
+                </div>
                 <div className='row mt-3'>
                     <div className='col-sm'>
                         <Budget />
@@ -35,12 +42,6 @@ const App = () => {
                 <div className='row mt-3'>
                     <div className='col-sm'>
                         <AllocationForm />
-                    </div>
-                </div>
-                <h3 className='mt-3'>Currency</h3> 
-                <div className='row mt-3'>
-                    <div className='col-sm'>
-                        <Currency /> 
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ const Currency = () => {
 
     return (
         <div className='form-group'>
-            <label htmlFor='currency'>Currency ({currency} Pound)</label> {/* MODIFY */}
+            <label htmlFor='currency'>Currency ({currency})</label>
             <select 
                 className='form-control'
                 id='currency'
