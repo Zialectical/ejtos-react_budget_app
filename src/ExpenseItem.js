@@ -41,7 +41,6 @@ const ExpenseItem = (props) => {
             <td>
                 <button 
                     className='btn btn-success btn-circle'
-                    style={{ borderRadius: '50%', padding: '10px', fontSize: '16px', color: 'white', backgroundColor: 'green', border: 'none', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     onClick={() => increaseAllocation(props.name)}
                 >
                     +
@@ -50,7 +49,6 @@ const ExpenseItem = (props) => {
             <td>
                 <button 
                     className='btn btn-danger btn-circle'
-                    style={{ borderRadius: '50%', padding: '10px', fontSize: '16px', color: 'white', backgroundColor: 'red', border: 'none', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     onClick={() => decreaseAllocation(props.name)}
                 >
                     -

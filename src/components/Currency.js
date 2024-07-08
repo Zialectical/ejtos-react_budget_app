@@ -12,7 +12,7 @@ const Currency = () => {
     };
 
     return (
-        <div className='alert alert-secondary' style={{ padding: '10px 15px', fontSize: '16px', borderRadius: '5px' }}>
+        <div className='alert alert-secondary currency-dropdown'>
             <label htmlFor='currency'>Currency ({currency})</label>
             <select 
                 className='form-control'
