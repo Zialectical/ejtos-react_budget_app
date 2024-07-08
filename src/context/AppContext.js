@@ -17,43 +17,23 @@ const initialState = {
 const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD_EXPENSE':
-            const updatedExpenses = state.expenses.map(exp => 
-                exp.name === action.payload.name
-                    ? { ...exp, cost: exp.cost + action.payload.cost }
-                    : exp
-            );
-
-            const totalCost = updatedExpenses.reduce((total, exp) => total + exp.cost, 0);
-            if (totalCost > state.budget) {
-                alert("Cannot increase the allocation! Out of funds");
-                return state;
-            }
-
             return {
                 ...state,
-                expenses: updatedExpenses,
+                expenses: state.expenses.map(exp => 
+                    exp.name === action.payload.name
+                        ? { ...exp, cost: exp.cost + action.payload.cost }
+                        : exp
+                )
             };
 
         case 'RED_EXPENSE':
-            const reducedExpenses = state.expenses.map(exp => 
-                exp.name === action.payload.name && exp.cost - action.payload.cost >= 0
-                    ? { ...exp, cost: exp.cost - action.payload.cost }
-                    : exp
-            );
-
             return {
                 ...state,
-                expenses: reducedExpenses,
-            };
-
-        case 'DELETE_EXPENSE':
-            const deletedExpenses = state.expenses.map(exp =>
-                exp.name === action.payload ? { ...exp, cost: 0 } : exp
-            );
-
-            return {
-                ...state,
-                expenses: deletedExpenses,
+                expenses: state.expenses.map(exp => 
+                    exp.name === action.payload.name && exp.cost - action.payload.cost >= 0
+                        ? { ...exp, cost: exp.cost - action.payload.cost }
+                        : exp
+                )
             };
 
         case 'SET_BUDGET':
