@@ -12,13 +12,14 @@ const Currency = () => {
     };
 
     return (
-        <div className='form-group'>
+        <div className='alert alert-secondary' style={{ padding: '10px 15px', fontSize: '16px', borderRadius: '5px' }}>
             <label htmlFor='currency'>Currency ({currency})</label>
             <select 
                 className='form-control'
                 id='currency'
                 value={currency}
                 onChange={handleCurrencyChange}
+                style={{ width: '150px', display: 'inline-block', marginLeft: '10px' }}
             >
                 <option value='$'>$ Dollar</option>
                 <option value='£'>£ Pound</option>
