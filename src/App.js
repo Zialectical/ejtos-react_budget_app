@@ -18,7 +18,7 @@ const App = () => {
                         <h1>Company's Budget Allocation</h1>
                     </div>
                     <div className='col-sm d-flex justify-content-end'>
-                        <Currency /> // MOVE TO TOP RIGHT
+                        <Currency /> {/* MOVE TO TOP RIGHT */}
                     </div>
                 </div>
                 <div className='row mt-3'>
