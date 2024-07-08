@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
-//Added an additional component to allow the user to select the currency
+
 const Currency = () => {
-    const { currency, dispatch } = useContext(AppContext); 
+    const { currency, dispatch } = useContext(AppContext);
 
     const handleCurrencyChange = (event) => {
         dispatch({
@@ -12,20 +12,18 @@ const Currency = () => {
     };
 
     return (
-		//Added a dropdown to allow the user to select the currency
         <div className='form-group'>
-            <label htmlFor='currency'>Currency</label> 
+            <label htmlFor='currency'>Currency ({currency} Pound)</label> {/* MODIFY */}
             <select 
                 className='form-control'
                 id='currency'
                 value={currency}
                 onChange={handleCurrencyChange}
-        //Need to test the below "Currency" values
-			>
-  				<option value='$'>$ Dollar</option>
-                <option value='室'>室</option>
-                <option value='⯬'>⯬</option>
-                <option value='￡'>￡</option>
+            >
+                <option value='$'>$ Dollar</option>
+                <option value='£'>£ Pound</option>
+                <option value='€'>€ Euro</option>
+                <option value='₹'>₹ Rupee</option>
             </select>
         </div>
     );

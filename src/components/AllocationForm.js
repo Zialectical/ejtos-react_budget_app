@@ -10,14 +10,14 @@ const AllocationForm = () => {
 
     const submitEvent = () => {
         const parsedCost = parseFloat(cost);
-        
+
         if (isNaN(parsedCost)) {
             setError("Please enter a valid number for the cost.");
             return;
         }
 
         if (parsedCost > remaining) {
-            alert("The value cannot exceed remaining funds  " + currency + remaining);
+            alert("The value cannot exceed remaining funds " + currency + remaining);
             setCost("");
             return;
         }
@@ -73,6 +73,7 @@ const AllocationForm = () => {
                         style={{ marginLeft: '2rem', size: 10 }}
                         onChange={(event) => setCost(event.target.value)}
                         min="0"
+                        placeholder={`${currency}0`}
                     />
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
