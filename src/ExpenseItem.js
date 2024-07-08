@@ -1,31 +1,53 @@
 import React, { useContext } from 'react';
-import { TiDelete } from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
-const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
-    const handleDeleteExpense = () => {
-        dispatch({
-            type: 'DELETE_EXPENSE',
-            payload: props.id,
-        });
-    };
-    const increaseAllocation = (name) => {
+
+const ExpenseList = () => {
+    const { expenses, dispatch } = useContext(AppContext);
+
+    const handleIncrease = (name) => {
         const expense = {
             name: name,
             cost: 10,
         };
+
         dispatch({
             type: 'ADD_EXPENSE',
-            payload: expense
+            payload: expense,
         });
-    }
+    };
+
+    const handleDecrease = (name) => {
+        const expense = {
+            name: name,
+            cost: 10,
+        };
+
+        dispatch({
+            type: 'RED_EXPENSE',
+            payload: expense,
+        });
+    };
+
     return (
-        <tr>
-        <td>{props.name}</td>
-        <td>£{props.cost}</td>
-        <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
-        <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
-        </tr>
+        <ul className='list-group'>
+            {expenses.map((expense) => (
+                <li key={expense.id} className='list-group-item d-flex justify-content-between align-items-center'>
+                    {expense.name}
+                    <span>
+                        <span className='badge badge-primary badge-pill mr-3'>
+                            £{expense.cost}
+                        </span>
+                        <button className='btn btn-success btn-sm mr-1' onClick={() => handleIncrease(expense.name)}>
+                            +
+                        </button>
+                        <button className='btn btn-danger btn-sm' onClick={() => handleDecrease(expense.name)}>
+                            -
+                        </button>
+                    </span>
+                </li>
+            ))}
+        </ul>
     );
 };
-export default ExpenseItem;
+
+export default ExpenseList;
