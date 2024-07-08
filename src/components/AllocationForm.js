@@ -6,17 +6,27 @@ const AllocationForm = () => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
+    const [error, setError] = useState('');
 
     const submitEvent = () => {
-        if (cost > remaining) {
-            alert("The value cannot exceed remaining funds  £" + remaining);
+        const parsedCost = parseFloat(cost);
+        
+        if (isNaN(parsedCost)) {
+            setError("Please enter a valid number for the cost.");
+            return;
+        }
+
+        if (parsedCost > remaining) {
+            alert("The value cannot exceed remaining funds £" + remaining);
             setCost("");
             return;
         }
+
         const expense = {
             name: name,
-            cost: parseInt(cost),
+            cost: parsedCost,
         };
+
         if (action === "Reduce") {
             dispatch({
                 type: 'RED_EXPENSE',
@@ -28,6 +38,8 @@ const AllocationForm = () => {
                 payload: expense,
             });
         }
+
+        setError('');
     };
 
     return (
@@ -59,12 +71,14 @@ const AllocationForm = () => {
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem', size: 10 }}
-                        onChange={(event) => setCost(event.target.value)}>
-                    </input>
+                        onChange={(event) => setCost(event.target.value)}
+                        min="0"
+                    />
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
                 </div>
+                {error && <div style={{ color: 'red', marginLeft: '2rem' }}>{error}</div>}
             </div>
         </div>
     );
