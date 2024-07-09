@@ -94,7 +94,6 @@ td:last-child {
   background-color: #dcd9d948;
   text-align: center;
   display: flex;
-  min-width: 200px;
 }
 
 .currency-box {
@@ -104,13 +103,11 @@ td:last-child {
 .remaining-box {
   background-color: #dff0d8;
   display: flex;
-
 }
 
 .spent-box {
   background-color: #d9edf7;
   display: flex;
-
 }
 
 .small-input-group {
@@ -131,5 +128,15 @@ td:last-child {
   background-color: #f1f1f1;
   border-radius: 50%;
   margin: 0 5px;
+}
 
+.small-input-group input {
+  width: 50px; 
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  padding: 0;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
