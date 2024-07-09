@@ -10,7 +10,7 @@ const AllocationForm = () => {
 
     const submitEvent = () => {
         const parsedCost = parseFloat(cost);
-
+        
         if (isNaN(parsedCost)) {
             setError("Please enter a valid number for the cost.");
             return;
@@ -65,16 +65,18 @@ const AllocationForm = () => {
                         <option defaultValue value="Add">Add</option>
                         <option value="Reduce">Reduce</option>
                     </select>
-                    <input
-                        required='required'
-                        type='number'
-                        id='cost'
-                        value={cost}
-                        style={{ marginLeft: '2rem', size: 10 }}
-                        onChange={(event) => setCost(event.target.value)}
-                        min="0"
-                        placeholder={`${currency}0`}
-                    />
+                    <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
+                        <span style={{ marginLeft: '2rem' }}>{currency}</span>
+                        <input
+                            required
+                            type="number"
+                            id="cost"
+                            value={cost}
+                            style={{ marginLeft: '2rem', size: '10px' }}
+                            onChange={(event) => setCost(event.target.value)}
+                            min="0"
+                        />
+                    </div>
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>

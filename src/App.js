@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import './App.css'
 
 import { AppProvider } from './context/AppContext';
 import Budget from './components/Budget';
@@ -15,21 +17,29 @@ const App = () => {
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
                 <div className='row mt-3'>
-                    <div className='col-sm-3'>
-                        <Budget />
+                    <div className='col-sm'>
+                        <div className='rectangle-box budget-box'>
+                            <Budget />
+                        </div>
                     </div>
-                    <div className='col-sm-3'>
-                        <Remaining />
+                    <div className='col-sm'>
+                        <div className='rectangle-box remaining-box'>
+                            <Remaining />
+                        </div>
                     </div>
-                    <div className='col-sm-3'>
-                        <ExpenseTotal />
+                    <div className='col-sm'>
+                        <div className='rectangle-box spent-box'>
+                            <ExpenseTotal />
+                        </div>
                     </div>
-                    <div className='col-sm-3'>
-                        <Currency />
+                    <div className='col-sm'>
+                        <div className='rectangle-box currency-box'>
+                            <Currency />
+                        </div>
                     </div>
                 </div>
                 <h3 className='mt-3'>Allocation</h3>
-                <div className='row'>
+                <div className='row '>
                     <div className='col-sm'>
                         <ExpenseList />
                     </div>

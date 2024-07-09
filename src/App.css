@@ -54,12 +54,12 @@ td:last-child {
   justify-content: center;
 }
 
-.btn-success {
-  background-color: green;
+.button-increase {
+  background-color: #4CAF50; /* Green */
 }
 
-.btn-danger {
-  background-color: red;
+.button-decrease {
+  background-color: #F44336; /* Red */
 }
 
 .currency-dropdown {
@@ -69,4 +69,67 @@ td:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #95c897; /* Light green background */
+  color: white; /* White text */
+}
+
+.currency-dropdown select {
+  background-color: white;
+  color: black;
+  border: none;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.rectangle-box {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  min-width: 200px; /* Adjust width as needed */
+}
+
+.budget-box {
+  background-color: #dcd9d948;
+  text-align: center;
+  display: flex;
+  min-width: 200px;
+}
+
+.currency-box {
+  background-color: #95c897;
+}
+
+.remaining-box {
+  background-color: #dff0d8;
+  display: flex;
+
+}
+
+.spent-box {
+  background-color: #d9edf7;
+  display: flex;
+
+}
+
+.small-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-input-group button {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  margin: 0 5px;
+
 }
