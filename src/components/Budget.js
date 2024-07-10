@@ -35,13 +35,13 @@ const Budget = () => {
         <div className='alert alert-secondary'>
             <div className='input-group'>
                 <div className='input-group-prepend'>
-                    <span className='input-group-text'>{currency}</span>
+                    <span className='input-group-text'>{currency.split(' ')[0]}</span>
                 </div>
                 <input 
                     type="number" 
                     value={newBudget} 
                     onChange={handleBudgetChange}
-                    placeholder={`${currency}0`}
+                    placeholder={`${currency.split(' ')[0]}0`}
                     className='form-control'
                 />
                 <div className='input-group-append'>
