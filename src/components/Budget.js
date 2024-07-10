@@ -33,16 +33,16 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <div className='input-group'> {/* Add input-group class for currency symbol alignment */}
+            <div className='input-group'>
                 <div className='input-group-prepend'>
-                    <span className='input-group-text'>{currency}</span> {/* Currency symbol */}
+                    <span className='input-group-text'>{currency}</span>
                 </div>
                 <input 
                     type="number" 
                     value={newBudget} 
                     onChange={handleBudgetChange}
                     placeholder={`${currency}0`}
-                    className='form-control' {/* Add form-control class */}
+                    className='form-control'
                 />
                 <div className='input-group-append'>
                     <button className='btn btn-primary' onClick={decreaseBudget}>-</button>

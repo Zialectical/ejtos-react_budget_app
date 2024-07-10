@@ -62,24 +62,48 @@ td:last-child {
   background-color: #F44336; /* Red */
 }
 
-.currency-dropdown {
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 5px;
+.currency-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: #95c897; /* Light green background */
-  color: white; /* White text */
+  align-items: center;
 }
 
-.currency-dropdown select {
+.currency-box {
+  background-color: #95c897; /* Light green background */
+  padding: 10px;
+  border-radius: 5px;
+  position: relative; /* Added to position the dropdown */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 250px;
+  color: white;
+}
+
+.currency-box select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Make the select box invisible */
+  cursor: pointer;
+}
+
+.currency-dropdown {
+  background-color: #95c897; /* Light green background */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.currency-dropdown option {
   background-color: white;
   color: black;
-  border: none;
-  margin-left: 10px;
-  padding: 5px;
-  border-radius: 3px;
+  padding: 10px;
 }
 
 .rectangle-box {
@@ -94,10 +118,7 @@ td:last-child {
   background-color: #dcd9d948;
   text-align: center;
   display: flex;
-}
-
-.currency-box {
-  background-color: #95c897;
+  min-width: 200px;
 }
 
 .remaining-box {

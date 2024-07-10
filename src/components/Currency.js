@@ -13,14 +13,14 @@ const Currency = () => {
     };
 
     return (
-        <div className="rectangle-box currency-box">
-            <div className="alert currency-dropdown">
-                <label htmlFor="currency">Currency ({currency}) </label>
-                <select id="currency" value={currency} onChange={handleCurrencyChange}>
-                    <option value="$">$ Dollar</option>
-                    <option value="£">£ Pound</option>
-                    <option value="€">€ Euro</option>
-                    <option value="₹">₹ Rupee</option>
+        <div className='currency-container'>
+            <div className='currency-box'>
+                <span>Currency ({currency})</span>
+                <select className='currency-dropdown' value={currency} onChange={handleCurrencyChange}>
+                    <option value="$ Dollar">$ Dollar</option>
+                    <option value="£ Pound">£ Pound</option>
+                    <option value="€ Euro">€ Euro</option>
+                    <option value="₹ Rupee">₹ Rupee</option>
                 </select>
             </div>
         </div>
