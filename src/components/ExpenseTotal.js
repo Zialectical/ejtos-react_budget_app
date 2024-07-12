@@ -9,9 +9,7 @@ const ExpenseTotal = () => {
     }, 0);
 
     return (
-        <div className='alert alert-primary'>
             <span>Spent so far: {currency.split(' ')[0]}{totalExpenses}</span>
-        </div>
     );
 };
 

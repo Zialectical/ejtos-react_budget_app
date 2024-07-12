@@ -5,25 +5,16 @@ const Currency = () => {
     const { currency, dispatch } = useContext(AppContext);
 
     const handleCurrencyChange = (event) => {
-        const selectedCurrency = event.target.value;
-        dispatch({
-            type: 'CHG_CURRENCY',
-            payload: selectedCurrency,
-        });
+        dispatch ({ type: 'CHG_CURRENCY', payload: event.target.value });
     };
 
     return (
-        <div className='currency-container'>
-            <div className='currency-box'>
-                <span>Currency ({currency})</span>
-                <select className='currency-dropdown' value={currency} onChange={handleCurrencyChange}>
-                    <option value="$ Dollar">$ Dollar</option>
-                    <option value="£ Pound">£ Pound</option>
-                    <option value="€ Euro">€ Euro</option>
-                    <option value="₹ Rupee">₹ Rupee</option>
-                </select>
-            </div>
-        </div>
+            <select value={currency} onChange={handleCurrencyChange}>
+                <option value="£ Pound">£ Pound</option>
+                <option value="$ Dollar">$ Dollar</option>
+                <option value="€ Euro">€ Euro</option>
+                <option value="₹ Rupee">₹ Rupee</option>
+            </select>
     );
 };
 

@@ -1,21 +1,26 @@
 import React, { createContext, useReducer } from 'react';
 
-const AppContext = createContext();
-
+// Initial state
 const initialState = {
     budget: 2000,
     expenses: [
-        { id: "Marketing", name: 'Marketing', cost: 50 },
-        { id: "Finance", name: 'Finance', cost: 300 },
-        { id: "Sales", name: 'Sales', cost: 70 },
-        { id: "Human Resource", name: 'Human Resource', cost: 40 },
-        { id: "IT", name: 'IT', cost: 500 },
+        { id: 1, name: 'Marketing', cost: 50 },
+        { id: 2, name: 'Finance', cost: 300 },
+        { id: 3, name: 'Sales', cost: 70 },
+        { id: 4, name: 'HR', cost: 40 },
+        { id: 5, name: 'IT', cost: 500 }
     ],
     currency: '£ Pound'
 };
 
-const reducer = (state, action) => {
+// Reducer
+const appReducer = (state, action) => {
     switch (action.type) {
+        case 'SET_BUDGET':
+            return {
+                ...state,
+                budget: action.payload
+            };
         case 'ADD_EXPENSE':
             return {
                 ...state,
@@ -25,7 +30,6 @@ const reducer = (state, action) => {
                         : exp
                 )
             };
-
         case 'RED_EXPENSE':
             return {
                 ...state,
@@ -35,46 +39,36 @@ const reducer = (state, action) => {
                         : exp
                 )
             };
-
-        case 'SET_BUDGET':
+        case 'DELETE_EXPENSE':
             return {
                 ...state,
-                budget: action.payload,
+                expenses: state.expenses.filter(exp => exp.id !== action.payload)
             };
-
         case 'CHG_CURRENCY':
             return {
                 ...state,
-                currency: action.payload,
+                currency: action.payload
             };
-
         default:
             return state;
     }
 };
 
-const AppProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+// Create context
+export const AppContext = createContext();
+// Provider component
 
-    const totalExpenses = state.expenses.reduce((total, item) => {
-        return total + item.cost;
-    }, 0);
-
-    const remaining = state.budget - totalExpenses;
+export const AppProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(appReducer, initialState);
 
     return (
-        <AppContext.Provider
-            value={{
-                expenses: state.expenses,
-                budget: state.budget,
-                remaining: remaining,
-                dispatch,
-                currency: state.currency
-            }}
-        >
+        <AppContext.Provider value={{
+            budget: state.budget,
+            expenses: state.expenses,
+            currency: state.currency,
+            dispatch
+        }}>
             {children}
         </AppContext.Provider>
     );
 };
-
-export { AppContext, AppProvider };
