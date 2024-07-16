@@ -72,6 +72,8 @@ const AllocationForm = () => {
                         required='required'
                         type='number'
                         className='form-control'
+                        min='0'
+                        step='10'
                         value={cost}
                         onChange={(event) => setCost(event.target.value)}                        
                     />

@@ -1,15 +1,16 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import React, { useContext } from 'react'; 
+import { AppContext } from '../context/AppContext'; 
+import '../App.css';
 
 const Budget = () => {
     // Retrieve both budget and dispatch from AppContext
-    const { dispatch, currency, budget } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleBudgetChange = (event) => {
         // Convert the input value to a number before dispatching
         dispatch({
             type: 'SET_BUDGET',
-            payload: { budget: Number(event.target.value) }
+            payload: Number(event.target.value)  // Directly pass the number value
         });
     };
 
@@ -24,15 +25,19 @@ const Budget = () => {
     };
 
     return (
-        <span>Budget: <strong>{getCurrencySymbol(currency)}</strong>
-            <input 
-                type="number" 
-                value={budget} // Set the input's value to the budget
-                onChange={handleBudgetChange}
-                min="0"
-                step="10"
-            />
-        </span>
+        <div className="budget-row">
+            <span>Budget:</span>
+            <div className="currency-symbol-container">
+                <span className='budgetCurrencySymbol'><strong>{getCurrencySymbol(currency)}</strong></span>
+                <input 
+                    type="number"
+                    onChange={handleBudgetChange}
+                    min="0"
+                    step="10"
+                    id="budgetInput" // added unique id attribute
+                />
+            </div>
+        </div>
     );
 };
 

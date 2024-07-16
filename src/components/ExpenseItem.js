@@ -29,9 +29,9 @@ const ExpenseItem = (props) => {
         <tr>
             <td>{props.name}</td>
             <td>{currency.split(' ')[0]}{props.cost}</td>
-            <td><button className="" onClick={increaseAllocation}>+</button></td>
-            <td><button className="" onClick={decreaseAllocation}>-</button></td>
-            <td><button className="" onClick={handleDelete}>x</button></td>
+            <td><button className="increaseByTen" onClick={increaseAllocation}>+</button></td>
+            <td><button className="decreaseByTen" onClick={decreaseAllocation}>-</button></td>
+            <td><button className="deleteLineItem" onClick={handleDelete}>x</button></td>
         </tr>
     );
 };
